@@ -220,6 +220,47 @@ https://docs.okd.io/3.11/install/example_inventories.html
                 SOURCE TO IMAGE TO GIT PULL, BUILD, CONTAINERIZE, DEPLOY A SPRING BOOT APP TO MINISHIFT/ OPENSHIFT PLATFORM
 -----------------------------------------------------------------------------------------------------------------------------------------------------
 
+	git repo for building, testing and deploying a spring boot app using the openshift s2i
+	
+	project in the laptop: c:\soft\minishift-examples\demo
+	project workspace: c:\soft\minishift-examples\demo-ws
+	
+	-----------------------------------------------------------------------------------------------------------------
+	
+	https
+	
+	https://github.com/messages-one/minishift-examples.git
+	
+	echo "# minishift-examples" >> README.md
+	git init
+	git add README.md
+	git commit -m "first commit"
+	git branch -M main
+	git remote add origin https://github.com/messages-one/minishift-examples.git
+	git push -u origin main
+	
+	git remote add origin https://github.com/messages-one/minishift-examples.git
+	git branch -M main
+	git push -u origin main
+	
+	--------------------------------------------------------------------------------------------------------------------
+	
+	ssh
+	
+	git@github.com:messages-one/minishift-examples.git
+	
+	echo "# minishift-examples" >> README.md
+	git init
+	git add README.md
+	git commit -m "first commit"
+	git branch -M main
+	git remote add origin git@github.com:messages-one/minishift-examples.git
+	git push -u origin main
+	
+	git remote add origin git@github.com:messages-one/minishift-examples.git
+	git branch -M main
+	git push -u origin main
+
 # create a project
 
   c:\soft\minishift> oc new-project minishift-demo-project
@@ -239,20 +280,20 @@ https://docs.okd.io/3.11/install/example_inventories.html
 
 # login to the registry.redhat.io
 
-  https://access.redhat.com/RegistryAuthentication#creating-registry-service-accounts-6
-
-  redhat developer account:
-
-   user name: messages.one@outlook.com
-   password:  discovery
-
-   # creating registry service account
-
-      https://access.redhat.com/RegistryAuthentication#creating-registry-service-accounts-6
+	  https://access.redhat.com/RegistryAuthentication#creating-registry-service-accounts-6
+	
+	  redhat developer account:
+	
+	   user name: messages.one@outlook.com
+	   password:  discovery
+	
+	   # creating registry service account
+	
+	      https://access.redhat.com/RegistryAuthentication#creating-registry-service-accounts-6
 
 # login to the registry.redhat.io from docker
 
-  c:\soft\minishift> docker login https://registry.redhat.io
+  	c:\soft\minishift> docker login https://registry.redhat.io
 
     username: messages.one@outlook.com
     password: aprilJones@67
@@ -401,140 +442,140 @@ spec:
 
 c:\soft\minishift>minishift start
 
--- Starting profile 'minishift'
--- Check if deprecated options are used ... OK
--- Checking if https://github.com is reachable ... OK
--- Checking if requested OpenShift version 'v3.11.0' is valid ... OK
--- Checking if requested OpenShift version 'v3.11.0' is supported ... OK
--- Checking if requested hypervisor 'virtualbox' is supported on this platform ... OK
--- Checking if VirtualBox is installed ... OK
--- Checking the ISO URL ... OK
--- Downloading OpenShift binary 'oc' version 'v3.11.0'
- 53.59 MiB / 53.59 MiB [===================================================================================================================================================] 100.00% 0s-- Downloading OpenShift v3.11.0 checksums ... OK
--- Checking if provided oc flags are supported ... OK
--- Starting the OpenShift cluster using 'virtualbox' hypervisor ...
--- Minishift VM will be configured with ...
-   Memory:    10 GB
-   vCPUs :    4
-   Disk size: 10 GB
-
-   Downloading ISO 'https://github.com/minishift/minishift-centos-iso/releases/download/v1.17.0/minishift-centos7.iso'
- 375.00 MiB / 375.00 MiB [=================================================================================================================================================] 100.00% 0s
--- Starting Minishift VM .............................. OK
--- Checking for IP address ... OK
--- Checking for nameservers ... OK
--- Checking if external host is reachable from the Minishift VM ...
-   Pinging 8.8.8.8 ... OK
--- Checking HTTP connectivity from the VM ...
-   Retrieving http://minishift.io/index.html ... OK
--- Checking if persistent storage volume is mounted ... OK
--- Checking available disk space ... 1% used OK
--- Writing current configuration for static assignment of IP address ... OK
-   Importing 'openshift/origin-control-plane:v3.11.0' . CACHE MISS
-   Importing 'openshift/origin-docker-registry:v3.11.0' . CACHE MISS
-   Importing 'openshift/origin-haproxy-router:v3.11.0' . CACHE MISS
--- OpenShift cluster will be configured with ...
-   Version: v3.11.0
--- Pulling the OpenShift Container Image ................................................ OK
--- Copying oc binary from the OpenShift container image to VM ... OK
--- Starting OpenShift cluster ......................................................................................................
-Getting a Docker client ...
-Checking if image openshift/origin-control-plane:v3.11.0 is available ...
-Pulling image openshift/origin-cli:v3.11.0
-E0518 10:05:18.049787    2908 helper.go:173] Reading docker config from /home/docker/.docker/config.json failed: open /home/docker/.docker/config.json: no such file or directory, will attempt to pull image docker.io/openshift/origin-cli:v3.11.0 anonymously
-Image pull complete
-Pulling image openshift/origin-node:v3.11.0
-E0518 10:05:21.554543    2908 helper.go:173] Reading docker config from /home/docker/.docker/config.json failed: open /home/docker/.docker/config.json: no such file or directory, will attempt to pull image docker.io/openshift/origin-node:v3.11.0 anonymously
-Pulled 5/6 layers, 84% complete
-Pulled 5/6 layers, 93% complete
-Pulled 6/6 layers, 100% complete
-Extracting
-Image pull complete
-Checking type of volume mount ...
-Determining server IP ...
-Using public hostname IP 192.168.99.101 as the host IP
-Checking if OpenShift is already running ...
-Checking for supported Docker version (=>1.22) ...
-Checking if insecured registry is configured properly in Docker ...
-Checking if required ports are available ...
-Checking if OpenShift client is configured properly ...
-Checking if image openshift/origin-control-plane:v3.11.0 is available ...
-Starting OpenShift using openshift/origin-control-plane:v3.11.0 ...
-I0518 10:06:39.635654    2908 config.go:40] Running "create-master-config"
-I0518 10:06:44.802680    2908 config.go:46] Running "create-node-config"
-I0518 10:06:47.154653    2908 flags.go:30] Running "create-kubelet-flags"
-I0518 10:06:47.860266    2908 run_kubelet.go:49] Running "start-kubelet"
-I0518 10:06:48.235906    2908 run_self_hosted.go:181] Waiting for the kube-apiserver to be ready ...
-I0518 10:09:04.267752    2908 interface.go:26] Installing "kube-proxy" ...
-I0518 10:09:04.269164    2908 interface.go:26] Installing "kube-dns" ...
-I0518 10:09:04.269183    2908 interface.go:26] Installing "openshift-service-cert-signer-operator" ...
-I0518 10:09:04.269196    2908 interface.go:26] Installing "openshift-apiserver" ...
-I0518 10:09:04.269324    2908 apply_template.go:81] Installing "openshift-apiserver"
-I0518 10:09:04.269671    2908 apply_template.go:81] Installing "kube-dns"
-I0518 10:09:04.269732    2908 apply_template.go:81] Installing "openshift-service-cert-signer-operator"
-I0518 10:09:04.270353    2908 apply_template.go:81] Installing "kube-proxy"
-I0518 10:09:09.973408    2908 interface.go:41] Finished installing "kube-proxy" "kube-dns" "openshift-service-cert-signer-operator" "openshift-apiserver"
-I0518 10:13:25.033463    2908 run_self_hosted.go:242] openshift-apiserver available
-I0518 10:13:25.034638    2908 interface.go:26] Installing "openshift-controller-manager" ...
-I0518 10:13:25.034677    2908 apply_template.go:81] Installing "openshift-controller-manager"
-I0518 10:13:28.840818    2908 interface.go:41] Finished installing "openshift-controller-manager"
-Adding default OAuthClient redirect URIs ...
-I0518 10:13:28.883527    2908 interface.go:26] Installing "sample-templates" ...
-I0518 10:13:28.883572    2908 interface.go:26] Installing "openshift-web-console-operator" ...
-I0518 10:13:28.883584    2908 interface.go:26] Installing "centos-imagestreams" ...
-I0518 10:13:28.883592    2908 interface.go:26] Installing "openshift-router" ...
-I0518 10:13:28.883601    2908 interface.go:26] Installing "persistent-volumes" ...
-I0518 10:13:28.883609    2908 interface.go:26] Installing "openshift-image-registry" ...
-Adding sample-templates ...
-Adding web-console ...
-Adding centos-imagestreams ...
-Adding router ...
-Adding persistent-volumes ...
-Adding registry ...
-W0518 10:13:28.891991    2908 create_secret.go:78] Error reading $HOME/.docker/config.json: open /home/docker/.docker/config.json: no such file or directory, imagestream import credentials will not be setup
-I0518 10:13:28.892158    2908 apply_list.go:67] Installing "centos-imagestreams"
-I0518 10:13:28.892882    2908 interface.go:26] Installing "sample-templates/mongodb" ...
-I0518 10:13:28.892917    2908 interface.go:26] Installing "sample-templates/mysql" ...
-I0518 10:13:28.892932    2908 interface.go:26] Installing "sample-templates/postgresql" ...
-I0518 10:13:28.892945    2908 interface.go:26] Installing "sample-templates/dancer quickstart" ...
-I0518 10:13:28.892960    2908 interface.go:26] Installing "sample-templates/jenkins pipeline ephemeral" ...
-I0518 10:13:28.892973    2908 interface.go:26] Installing "sample-templates/sample pipeline" ...
-I0518 10:13:28.892995    2908 interface.go:26] Installing "sample-templates/mariadb" ...
-I0518 10:13:28.893007    2908 interface.go:26] Installing "sample-templates/cakephp quickstart" ...
-I0518 10:13:28.893020    2908 interface.go:26] Installing "sample-templates/django quickstart" ...
-I0518 10:13:28.893064    2908 interface.go:26] Installing "sample-templates/nodejs quickstart" ...
-I0518 10:13:28.893082    2908 interface.go:26] Installing "sample-templates/rails quickstart" ...
-I0518 10:13:28.893176    2908 apply_list.go:67] Installing "sample-templates/rails quickstart"
-I0518 10:13:28.894361    2908 apply_list.go:67] Installing "sample-templates/sample pipeline"
-I0518 10:13:28.895181    2908 apply_list.go:67] Installing "sample-templates/mongodb"
-I0518 10:13:28.895628    2908 apply_template.go:81] Installing "openshift-web-console-operator"
-I0518 10:13:28.895813    2908 apply_list.go:67] Installing "sample-templates/mysql"
-I0518 10:13:28.896097    2908 apply_list.go:67] Installing "sample-templates/mariadb"
-I0518 10:13:28.896133    2908 apply_list.go:67] Installing "sample-templates/postgresql"
-I0518 10:13:28.896570    2908 apply_list.go:67] Installing "sample-templates/cakephp quickstart"
-I0518 10:13:28.896968    2908 apply_list.go:67] Installing "sample-templates/dancer quickstart"
-I0518 10:13:28.896974    2908 apply_list.go:67] Installing "sample-templates/django quickstart"
-I0518 10:13:28.897364    2908 apply_list.go:67] Installing "sample-templates/nodejs quickstart"
-I0518 10:13:28.897478    2908 apply_list.go:67] Installing "sample-templates/jenkins pipeline ephemeral"
-I0518 10:13:46.802428    2908 interface.go:41] Finished installing "sample-templates/mongodb" "sample-templates/mysql" "sample-templates/postgresql" "sample-templates/dancer quickstart" "sample-templates/jenkins pipeline ephemeral" "sample-templates/sample pipeline" "sample-templates/mariadb" "sample-templates/cakephp quickstart" "sample-templates/django quickstart" "sample-templates/nodejs quickstart" "sample-templates/rails quickstart"
-I0518 10:16:26.792909    2908 interface.go:41] Finished installing "sample-templates" "openshift-web-console-operator" "centos-imagestreams" "openshift-router" "persistent-volumes" "openshift-image-registry"
-Login to server ...
-Creating initial project "myproject" ...
-Server Information ...
-OpenShift server started.
-
-The server is accessible via web console at:
-    https://192.168.99.101:8443/console
-
-You are logged in as:
-    User:     developer
-    Password: <any value>
-
-To login as administrator:
-    oc login -u system:admin
-
-
--- Exporting of OpenShift images is occuring in background process with pid 15260.
-
-c:\soft\minishift>
+	-- Starting profile 'minishift'
+	-- Check if deprecated options are used ... OK
+	-- Checking if https://github.com is reachable ... OK
+	-- Checking if requested OpenShift version 'v3.11.0' is valid ... OK
+	-- Checking if requested OpenShift version 'v3.11.0' is supported ... OK
+	-- Checking if requested hypervisor 'virtualbox' is supported on this platform ... OK
+	-- Checking if VirtualBox is installed ... OK
+	-- Checking the ISO URL ... OK
+	-- Downloading OpenShift binary 'oc' version 'v3.11.0'
+	 53.59 MiB / 53.59 MiB [===================================================================================================================================================] 100.00% 0s-- Downloading OpenShift v3.11.0 checksums ... OK
+	-- Checking if provided oc flags are supported ... OK
+	-- Starting the OpenShift cluster using 'virtualbox' hypervisor ...
+	-- Minishift VM will be configured with ...
+	   Memory:    10 GB
+	   vCPUs :    4
+	   Disk size: 10 GB
+	
+	   Downloading ISO 'https://github.com/minishift/minishift-centos-iso/releases/download/v1.17.0/minishift-centos7.iso'
+	 375.00 MiB / 375.00 MiB [=================================================================================================================================================] 100.00% 0s
+	-- Starting Minishift VM .............................. OK
+	-- Checking for IP address ... OK
+	-- Checking for nameservers ... OK
+	-- Checking if external host is reachable from the Minishift VM ...
+	   Pinging 8.8.8.8 ... OK
+	-- Checking HTTP connectivity from the VM ...
+	   Retrieving http://minishift.io/index.html ... OK
+	-- Checking if persistent storage volume is mounted ... OK
+	-- Checking available disk space ... 1% used OK
+	-- Writing current configuration for static assignment of IP address ... OK
+	   Importing 'openshift/origin-control-plane:v3.11.0' . CACHE MISS
+	   Importing 'openshift/origin-docker-registry:v3.11.0' . CACHE MISS
+	   Importing 'openshift/origin-haproxy-router:v3.11.0' . CACHE MISS
+	-- OpenShift cluster will be configured with ...
+	   Version: v3.11.0
+	-- Pulling the OpenShift Container Image ................................................ OK
+	-- Copying oc binary from the OpenShift container image to VM ... OK
+	-- Starting OpenShift cluster ......................................................................................................
+	Getting a Docker client ...
+	Checking if image openshift/origin-control-plane:v3.11.0 is available ...
+	Pulling image openshift/origin-cli:v3.11.0
+	E0518 10:05:18.049787    2908 helper.go:173] Reading docker config from /home/docker/.docker/config.json failed: open /home/docker/.docker/config.json: no such file or directory, will attempt to pull image docker.io/openshift/origin-cli:v3.11.0 anonymously
+	Image pull complete
+	Pulling image openshift/origin-node:v3.11.0
+	E0518 10:05:21.554543    2908 helper.go:173] Reading docker config from /home/docker/.docker/config.json failed: open /home/docker/.docker/config.json: no such file or directory, will attempt to pull image docker.io/openshift/origin-node:v3.11.0 anonymously
+	Pulled 5/6 layers, 84% complete
+	Pulled 5/6 layers, 93% complete
+	Pulled 6/6 layers, 100% complete
+	Extracting
+	Image pull complete
+	Checking type of volume mount ...
+	Determining server IP ...
+	Using public hostname IP 192.168.99.101 as the host IP
+	Checking if OpenShift is already running ...
+	Checking for supported Docker version (=>1.22) ...
+	Checking if insecured registry is configured properly in Docker ...
+	Checking if required ports are available ...
+	Checking if OpenShift client is configured properly ...
+	Checking if image openshift/origin-control-plane:v3.11.0 is available ...
+	Starting OpenShift using openshift/origin-control-plane:v3.11.0 ...
+	I0518 10:06:39.635654    2908 config.go:40] Running "create-master-config"
+	I0518 10:06:44.802680    2908 config.go:46] Running "create-node-config"
+	I0518 10:06:47.154653    2908 flags.go:30] Running "create-kubelet-flags"
+	I0518 10:06:47.860266    2908 run_kubelet.go:49] Running "start-kubelet"
+	I0518 10:06:48.235906    2908 run_self_hosted.go:181] Waiting for the kube-apiserver to be ready ...
+	I0518 10:09:04.267752    2908 interface.go:26] Installing "kube-proxy" ...
+	I0518 10:09:04.269164    2908 interface.go:26] Installing "kube-dns" ...
+	I0518 10:09:04.269183    2908 interface.go:26] Installing "openshift-service-cert-signer-operator" ...
+	I0518 10:09:04.269196    2908 interface.go:26] Installing "openshift-apiserver" ...
+	I0518 10:09:04.269324    2908 apply_template.go:81] Installing "openshift-apiserver"
+	I0518 10:09:04.269671    2908 apply_template.go:81] Installing "kube-dns"
+	I0518 10:09:04.269732    2908 apply_template.go:81] Installing "openshift-service-cert-signer-operator"
+	I0518 10:09:04.270353    2908 apply_template.go:81] Installing "kube-proxy"
+	I0518 10:09:09.973408    2908 interface.go:41] Finished installing "kube-proxy" "kube-dns" "openshift-service-cert-signer-operator" "openshift-apiserver"
+	I0518 10:13:25.033463    2908 run_self_hosted.go:242] openshift-apiserver available
+	I0518 10:13:25.034638    2908 interface.go:26] Installing "openshift-controller-manager" ...
+	I0518 10:13:25.034677    2908 apply_template.go:81] Installing "openshift-controller-manager"
+	I0518 10:13:28.840818    2908 interface.go:41] Finished installing "openshift-controller-manager"
+	Adding default OAuthClient redirect URIs ...
+	I0518 10:13:28.883527    2908 interface.go:26] Installing "sample-templates" ...
+	I0518 10:13:28.883572    2908 interface.go:26] Installing "openshift-web-console-operator" ...
+	I0518 10:13:28.883584    2908 interface.go:26] Installing "centos-imagestreams" ...
+	I0518 10:13:28.883592    2908 interface.go:26] Installing "openshift-router" ...
+	I0518 10:13:28.883601    2908 interface.go:26] Installing "persistent-volumes" ...
+	I0518 10:13:28.883609    2908 interface.go:26] Installing "openshift-image-registry" ...
+	Adding sample-templates ...
+	Adding web-console ...
+	Adding centos-imagestreams ...
+	Adding router ...
+	Adding persistent-volumes ...
+	Adding registry ...
+	W0518 10:13:28.891991    2908 create_secret.go:78] Error reading $HOME/.docker/config.json: open /home/docker/.docker/config.json: no such file or directory, imagestream import credentials will not be setup
+	I0518 10:13:28.892158    2908 apply_list.go:67] Installing "centos-imagestreams"
+	I0518 10:13:28.892882    2908 interface.go:26] Installing "sample-templates/mongodb" ...
+	I0518 10:13:28.892917    2908 interface.go:26] Installing "sample-templates/mysql" ...
+	I0518 10:13:28.892932    2908 interface.go:26] Installing "sample-templates/postgresql" ...
+	I0518 10:13:28.892945    2908 interface.go:26] Installing "sample-templates/dancer quickstart" ...
+	I0518 10:13:28.892960    2908 interface.go:26] Installing "sample-templates/jenkins pipeline ephemeral" ...
+	I0518 10:13:28.892973    2908 interface.go:26] Installing "sample-templates/sample pipeline" ...
+	I0518 10:13:28.892995    2908 interface.go:26] Installing "sample-templates/mariadb" ...
+	I0518 10:13:28.893007    2908 interface.go:26] Installing "sample-templates/cakephp quickstart" ...
+	I0518 10:13:28.893020    2908 interface.go:26] Installing "sample-templates/django quickstart" ...
+	I0518 10:13:28.893064    2908 interface.go:26] Installing "sample-templates/nodejs quickstart" ...
+	I0518 10:13:28.893082    2908 interface.go:26] Installing "sample-templates/rails quickstart" ...
+	I0518 10:13:28.893176    2908 apply_list.go:67] Installing "sample-templates/rails quickstart"
+	I0518 10:13:28.894361    2908 apply_list.go:67] Installing "sample-templates/sample pipeline"
+	I0518 10:13:28.895181    2908 apply_list.go:67] Installing "sample-templates/mongodb"
+	I0518 10:13:28.895628    2908 apply_template.go:81] Installing "openshift-web-console-operator"
+	I0518 10:13:28.895813    2908 apply_list.go:67] Installing "sample-templates/mysql"
+	I0518 10:13:28.896097    2908 apply_list.go:67] Installing "sample-templates/mariadb"
+	I0518 10:13:28.896133    2908 apply_list.go:67] Installing "sample-templates/postgresql"
+	I0518 10:13:28.896570    2908 apply_list.go:67] Installing "sample-templates/cakephp quickstart"
+	I0518 10:13:28.896968    2908 apply_list.go:67] Installing "sample-templates/dancer quickstart"
+	I0518 10:13:28.896974    2908 apply_list.go:67] Installing "sample-templates/django quickstart"
+	I0518 10:13:28.897364    2908 apply_list.go:67] Installing "sample-templates/nodejs quickstart"
+	I0518 10:13:28.897478    2908 apply_list.go:67] Installing "sample-templates/jenkins pipeline ephemeral"
+	I0518 10:13:46.802428    2908 interface.go:41] Finished installing "sample-templates/mongodb" "sample-templates/mysql" "sample-templates/postgresql" "sample-templates/dancer quickstart" "sample-templates/jenkins pipeline ephemeral" "sample-templates/sample pipeline" "sample-templates/mariadb" "sample-templates/cakephp quickstart" "sample-templates/django quickstart" "sample-templates/nodejs quickstart" "sample-templates/rails quickstart"
+	I0518 10:16:26.792909    2908 interface.go:41] Finished installing "sample-templates" "openshift-web-console-operator" "centos-imagestreams" "openshift-router" "persistent-volumes" "openshift-image-registry"
+	Login to server ...
+	Creating initial project "myproject" ...
+	Server Information ...
+	OpenShift server started.
+	
+	The server is accessible via web console at:
+	    https://192.168.99.101:8443/console
+	
+	You are logged in as:
+	    User:     developer
+	    Password: <any value>
+	
+	To login as administrator:
+	    oc login -u system:admin
+	
+	
+	-- Exporting of OpenShift images is occuring in background process with pid 15260.
+	
+	c:\soft\minishift>
 
